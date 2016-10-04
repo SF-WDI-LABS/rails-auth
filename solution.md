@@ -1,1 +1,1 @@
-<a href="https://github.com/sf-wdi-27-28/rails_blog_app/tree/solution_authorization">Here</a> is one solution implementing auth in Rails.
+For an example of a similar flow working in a Rails app, see the solutions branch for the Rails views and helpers training: [click here](https://github.com/sf-wdi-31/rails-views-helpers-training/tree/solution).
