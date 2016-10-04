@@ -57,14 +57,15 @@ Railscast \#250 Authentication from Scratch (revised)](http://railscasts.com/epi
     ```html+erb
     <!-- app/views/users/new.html.erb -->
 
-    <h1>Signup!</h1>
+    <h1>Sign up!</h1>
 
     <%= form_for :user, url: '/users' do |f| %>
+    <% # same as form_for @user do |f| %>
 
-      Name: <%= f.text_field :name %>
-      Email: <%= f.text_field :email %>
-      Password: <%= f.password_field :password %>
-      Password Confirmation: <%= f.password_field :password_confirmation %>
+      Name: <%= f.text_field :name %><br>
+      Email: <%= f.text_field :email %><br>
+      Password: <%= f.password_field :password %><br>
+      Password Confirmation: <%= f.password_field :password_confirmation %><br>
       <%= f.submit "Submit" %>
 
     <% end %>
@@ -79,6 +80,7 @@ Railscast \#250 Authentication from Scratch (revised)](http://railscasts.com/epi
   class UsersController < ApplicationController
 
     def new
+      # if using @user in view, set up @user = User.new here
     end
 
     def create
@@ -91,7 +93,7 @@ Railscast \#250 Authentication from Scratch (revised)](http://railscasts.com/epi
       end
     end
 
-  private
+    private
 
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
@@ -148,7 +150,7 @@ Railscast \#250 Authentication from Scratch (revised)](http://railscasts.com/epi
     end
     ```
 
-11. Create a form for user's to login with.
+11. Create a form for users to log in with.
 
     ```html+erb
     <!-- app/views/sessions/new.html.erb -->
@@ -207,7 +209,7 @@ Railscast \#250 Authentication from Scratch (revised)](http://railscasts.com/epi
       end
     ```
 
-14. Update the application controller with new methods to look up the user, if they're logged in, and save their user object to a variable called @current\_user. The ``` helper_method ``` line below current\_user allows us to use ``` @current_user ``` in our view files. Authorize is for sending someone to the login page if they aren't logged in - this is how we keep certain pages our site secure... user's have to login before seeing them.
+14. Update the application controller with new methods to look up the user, if they're logged in, and save their user object to a variable called `@current_user`. The ``` helper_method ``` line below current\_user allows us to use ``` @current_user ``` in our view files. Authorize is for sending someone to the login page if they aren't logged in - this is how we keep certain pages our site secure... user's have to login before seeing them.
 
     ```ruby
     # app/controllers/application_controller.rb
