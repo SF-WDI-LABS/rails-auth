@@ -18,8 +18,8 @@ Many apps track user data and allow users to sign up, log in, and log out. Today
 <!-- specific/measurable goal for students to achieve -->
 *After this workshop, developers will be able to:*
 
+- Build routes, controllers, and views for user sign up, log in, and log out.
 - Implement a `User` model that securely stores passwords with `has_secure_password`.
-- Build routes, controllers, and for user sign up, log in, and log out.
 - Differentiate authentication and authorization.
 
 ### Where should we be now?
