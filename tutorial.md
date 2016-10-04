@@ -60,7 +60,6 @@ Railscast \#250 Authentication from Scratch (revised)](http://railscasts.com/epi
     <h1>Sign up!</h1>
 
     <%= form_for :user, url: '/users' do |f| %>
-    <% # same as form_for @user do |f| %>
 
       Name: <%= f.text_field :name %><br>
       Email: <%= f.text_field :email %><br>
@@ -80,7 +79,6 @@ Railscast \#250 Authentication from Scratch (revised)](http://railscasts.com/epi
   class UsersController < ApplicationController
 
     def new
-      # if using @user in view, set up @user = User.new here
     end
 
     def create
