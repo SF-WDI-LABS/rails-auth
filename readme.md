@@ -140,14 +140,7 @@ You'll want to do this at **signup** and **log in**.
 
 **Check for understanding**: How would we use the session hash to log a user *out*?
 
-## Conclusion
-
-That's it, **authentication** in a nutshell.  Not too bad right?  
-
-
-<img src="http://i.giphy.com/TEFplLVRDMWBi.gif" style="max-width: 400px;">
-
----
+## Authorization
 
 You've seen **authentication**, but for many apps you'll still want to add **authorization**.
 
@@ -163,3 +156,12 @@ You've seen **authentication**, but for many apps you'll still want to add **aut
 * Then, in each of your controllers, check whether the `current_user` should be allowed to do the action they're trying to. You can use `before_action` to keep this code DRYer.
 
 * Consider adding conditionals to your views. For example, don't show links to users who can't use them.
+
+
+### Conclusion
+
+That's it, **authentication** and **authorization** in a nutshell.  Not too bad, right?  
+
+
+<img src="http://i.giphy.com/TEFplLVRDMWBi.gif" style="max-width: 400px;">
+
