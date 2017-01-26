@@ -1,1 +1,0 @@
-For an example of a similar flow working in a Rails app, see the solutions branch for the Rails views and helpers training: [click here](https://github.com/sf-wdi-31/rails-views-helpers-training/tree/solution).
