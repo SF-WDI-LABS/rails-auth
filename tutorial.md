@@ -3,6 +3,9 @@
 This tutorial is for adding authentication to a vanilla Ruby on Rails app using Bcrypt and has\_secure\_password. It is based on Ryan Bates's approach from [
 Railscast \#250 Authentication from Scratch (revised)](http://railscasts.com/episodes/250-authentication-from-scratch-revised) and a [gist by thebucknerlife](https://gist.github.com/thebucknerlife/10090014) (@thebucknerlife on Twitter).
 
+<a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/solution_authorization">Here is one WDI lab solution implementing auth in Rails.
+</a>
+
 ##Steps
 
 1. Create a user model with a `name`, `email` and `password_digest` (all strings) by entering the following command into the command line: ``` rails generate model user name email password_digest ```.
