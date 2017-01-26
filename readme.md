@@ -165,3 +165,6 @@ That's it, **authentication** and **authorization** in a nutshell.  Not too bad,
 
 <img src="http://i.giphy.com/TEFplLVRDMWBi.gif" style="max-width: 400px;">
 
+
+
+For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/solution_authorization">a WDI lab solution implementing auth in Rails 4.</a>
