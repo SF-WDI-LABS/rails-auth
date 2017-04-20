@@ -180,7 +180,7 @@ Sometimes authenticating with your site isn't enough - sometimes you want data t
  - is there an [OmniAuth](https://github.com/omniauth/omniauth) strategy for the API?  
  - do I want to try building more myself with tools like [Oauth2](https://github.com/intridea/oauth2/) gems?
  
-<details><summary>**Alternative Strategy Example: OAuth 2 Authorization**</summary>
+<details><summary> Alternative Strategy Example: OAuth 2 Authorization </summary>
 
 OAuth 2 is a framework for third-party authorization - allowing one application to access data from another application, on a user's behalf.
 
