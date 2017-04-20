@@ -1,17 +1,17 @@
-#Simple Authentication with Bcrypt in Rails 5
+# Simple Authentication with Bcrypt in Rails 5
 
 This tutorial is for adding authentication to a vanilla Ruby on Rails app using Bcrypt and has\_secure\_password. It is based on Ryan Bates's approach from [
 Railscast \#250 Authentication from Scratch (revised)](http://railscasts.com/episodes/250-authentication-from-scratch-revised) and a [gist by thebucknerlife](https://gist.github.com/thebucknerlife/10090014) (@thebucknerlife on Twitter).
 
 For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/solution_authorization">a WDI lab solution implementing auth in Rails.</a>
 
-##Steps
+## Steps
 
-1. Create a user model with a `name`, `email` and `password_digest` (all strings) by entering the following command into the command line: ``` rails generate model user name email password_digest ```.
+1. Create a user model with a `name`, `email` and `password_digest` (all strings) by entering the following command into the command line: `rails generate model user name email password_digest`.
 
     *Note:* If you already have a user model or you're going to use a different model for authentication, that model must have an attribute named `password_digest` and some kind of attribute to identify the user (like an email or a username).
 
-2. Run ``` rake db:migrate ``` in the command line to migrate the database.
+2. Run `rake db:migrate` in the command line to migrate the database.
 
 3. Add the routes below to your `config/routes.rb` file.
 
@@ -56,7 +56,7 @@ For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/
 
 5. Now create the view file where we put the signup form.
 
-    ```html+erb
+    ```html
     <!-- app/views/users/new.html.erb -->
 
     <h1>Sign up!</h1>
@@ -78,27 +78,27 @@ For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/
 6. Add logic to **create** action and add the private ``` user_params ``` method to ensure we're only using intended input parameters from the form. You will need to adjust the parameters inside the ``` .permit() ``` method based on how you set up your `User` model - be sure to permit all the fields you  expect to receive from your front end.
 
     ```ruby
-  class UsersController < ApplicationController
+    class UsersController < ApplicationController
 
-    def new
+        def new
+        end
+
+        def create
+          user = User.new(user_params)
+          if user.save
+            session[:user_id] = user.id
+            redirect_to '/'
+          else
+            redirect_to '/signup'
+          end
+        end
+
+        private
+
+        def user_params
+          params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        end
     end
-
-    def create
-      user = User.new(user_params)
-      if user.save
-        session[:user_id] = user.id
-        redirect_to '/'
-      else
-        redirect_to '/signup'
-      end
-    end
-
-    private
-
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
-  end
     ```
 
 7. Go to your Gemfile and uncomment the 'bcrypt' gem. We need bcrypt to securely store passwords in our database.
@@ -251,7 +251,7 @@ For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/
 
 16. You can update your application layout file to show the user's name if they're logged in and some contextual links.
 
-    ```html+erb
+    ```html
     <!-- app/views/layout/application.html.erb -->
 
     <!DOCTYPE html>

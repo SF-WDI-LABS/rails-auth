@@ -32,7 +32,7 @@ Many apps track user data and allow users to sign up, log in, and log out. Today
 
 Some of you have heard of <a href="https://github.com/plataformatec/devise">Devise</a>, a gem that will handle auth for you. That's cool and all, but they recommend that if you're new to rails:
 
-> If you are building your first Rails application, we recommend you do not use Devise. Devise requires a good understanding of the Rails Framework. In such cases, we advise you to start a simple authentication system from scratch. ... <a href="https://github.com/plataformatec/devise#starting-with-rails"\>[docs]</a>
+> If you are building your first Rails application, we recommend you do not use Devise. Devise requires a good understanding of the Rails Framework. In such cases, we advise you to start a simple authentication system from scratch. ... ([docs](https://github.com/plataformatec/devise#starting-with-rails))
 
 **That's what we're going to do!**
 
