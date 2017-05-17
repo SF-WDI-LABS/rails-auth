@@ -173,15 +173,18 @@ For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/
 
 ### Alternative Strategies
 
+#### Local Authentication Gems
 There are a lot of gems that help implement authentication.  For Rails,  <a href="https://github.com/plataformatec/devise">Devise</a> is a very popular gem that will handle your site's authentication for you. [Cancancan](https://github.com/CanCanCommunity/cancancan) is a popular authorization gem. Some "local auth" strategies don't use sessions at all - you could explore [JSON Web Tokens](https://jwt.io/).
+
+
+#### Third Party Authentication and Authorization Gems
 
 Sometimes authenticating with your site isn't enough - sometimes you want data that another organization controls. Here, you're getting into third-party authorization strategies like OAuth (which comes in flavors: 1 or 2). If your Rails app needs data from a third-party API, you could check:  
  - have the API creators provided an official gem for Rails developers to use?  
  - is there an [OmniAuth](https://github.com/omniauth/omniauth) strategy for the API?  
  - do I want to try building more myself with tools like [Oauth2](https://github.com/intridea/oauth2/) gems?
  
-<details><summary>**Alternative Strategy Example: OAuth 2 Authorization**</summary>
-
+#### OAuth 2 Authorization Overview
 OAuth 2 is a framework for third-party authorization - allowing one application to access data from another application, on a user's behalf.
 
 In the real world, this might correspond to me walking into a bank and telling the teller you said I could have some of your money every month. We'd hope the teller would be skeptical. Maybe they'd ask that you come into the bank yourself and authorize me to withdraw some specific amount of money on a specific schedule.  They'd probably want a copy of my id so they could verify it was me coming back to withdraw money each time. If everything checked out, the bank would give me a special token or passphrase that I could use to get money now and smooth out the transaction now and for some specified amount of time.
@@ -195,7 +198,5 @@ GitFace never interacts directly with  Sam's login information.  If Sam is authe
 In the background, GitFace then sends a new request to facebook - it needs to convert Sam's permission code into a token.  In order to get the code converted, GitFace also needs to securely identify itself to facebook by telling facebook its client secret.
 
 If the permission code and client secret check out, facbook issues a token that GitFace can use to access the materials approved by Sam. This usually has some expiration time so that the user doesn't have to re-authenticate on every step.  
-
-</details>
 
 
