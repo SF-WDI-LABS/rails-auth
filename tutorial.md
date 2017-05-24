@@ -1,9 +1,9 @@
 # Simple Authentication with Bcrypt in Rails 5
 
-This tutorial is for adding authentication to a vanilla Ruby on Rails app using Bcrypt and has\_secure\_password. It is based on Ryan Bates's approach from [
+This tutorial is for adding authentication to a Ruby on Rails 5 app using Bcrypt and has\_secure\_password. It is based on a Rails 4 version using Ryan Bates's approach from [
 Railscast \#250 Authentication from Scratch (revised)](http://railscasts.com/episodes/250-authentication-from-scratch-revised) and a [gist by thebucknerlife](https://gist.github.com/thebucknerlife/10090014) (@thebucknerlife on Twitter).
 
-For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/solution_authorization">a WDI lab solution implementing auth in Rails.</a>
+For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/solution_authorization">a WDI lab solution implementing auth in Rails 4.</a>
 
 ## Steps
 
