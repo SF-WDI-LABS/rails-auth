@@ -1,9 +1,9 @@
 # Simple Authentication with Bcrypt in Rails 5
 
-This tutorial is for adding authentication to a vanilla Ruby on Rails app using Bcrypt and has\_secure\_password. It is based on Ryan Bates's approach from [
+This tutorial is for adding authentication to a Ruby on Rails 5 app using Bcrypt and has\_secure\_password. It is based on a Rails 4 version using Ryan Bates's approach from [
 Railscast \#250 Authentication from Scratch (revised)](http://railscasts.com/episodes/250-authentication-from-scratch-revised) and a [gist by thebucknerlife](https://gist.github.com/thebucknerlife/10090014) (@thebucknerlife on Twitter).
 
-For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/solution_authorization">a WDI lab solution implementing auth in Rails.</a>
+For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/solution_authorization">a WDI lab solution implementing auth in Rails 4.</a>
 
 ## Steps
 
@@ -28,7 +28,7 @@ For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/
     end
     ```
 
-3. Create a users controller:
+4. Create a users controller:
 
     ```ruby
     # app/controllers/users_controller.rb
@@ -38,7 +38,7 @@ For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/
     end
     ```
 
-4. Add a **new** action (for rendering the signup form) and a **create** action (for receiving the form and creating a user with the form's parameters):
+5. Add a **new** action (for rendering the signup form) and a **create** action (for receiving the form and creating a user with the form's parameters):
 
     ```ruby
     # app/controllers/users_controller.rb
@@ -71,6 +71,7 @@ For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/
 
     <% end %>
     ```
+
    *A note on Rail's conventions:* This view file is for the **new** action of the **users controller**. As a result, we save the file here: ``` /app/views/users/new.html.erb ```. The file is called **new**.html.erb and it is saved inside the views folder, in a folder we created called **users**.
 
    That's the convention: view files are inside a folder with the same name as the controller and are named for the action they render.
@@ -78,27 +79,27 @@ For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/
 6. Add logic to **create** action and add the private ``` user_params ``` method to ensure we're only using intended input parameters from the form. You will need to adjust the parameters inside the ``` .permit() ``` method based on how you set up your `User` model - be sure to permit all the fields you  expect to receive from your front end.
 
     ```ruby
-    class UsersController < ApplicationController
+     class UsersController < ApplicationController
 
-        def new
-        end
+       def new
+       end
 
-        def create
-          user = User.new(user_params)
-          if user.save
-            session[:user_id] = user.id
-            redirect_to '/'
-          else
-            redirect_to '/signup'
-          end
-        end
+       def create
+         user = User.new(user_params)
+         if user.save
+           session[:user_id] = user.id
+           redirect_to '/'
+         else
+           redirect_to '/signup'
+         end
+       end
 
-        private
+       private
 
-        def user_params
-          params.require(:user).permit(:name, :email, :password, :password_confirmation)
-        end
-    end
+       def user_params
+         params.require(:user).permit(:name, :email, :password, :password_confirmation)
+       end
+     end
     ```
 
 7. Go to your Gemfile and uncomment the 'bcrypt' gem. We need bcrypt to securely store passwords in our database.

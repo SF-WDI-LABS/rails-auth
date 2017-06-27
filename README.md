@@ -173,14 +173,19 @@ For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/
 
 ### Alternative Strategies
 
+#### Local Authentication Gems
 There are a lot of gems that help implement authentication.  For Rails,  <a href="https://github.com/plataformatec/devise">Devise</a> is a very popular gem that will handle your site's authentication for you. [Cancancan](https://github.com/CanCanCommunity/cancancan) is a popular authorization gem. Some "local auth" strategies don't use sessions at all - you could explore [JSON Web Tokens](https://jwt.io/).
+
+
+#### Third Party Authentication and Authorization Gems
 
 Sometimes authenticating with your site isn't enough - sometimes you want data that another organization controls. Here, you're getting into third-party authorization strategies like OAuth (which comes in flavors: 1 or 2). If your Rails app needs data from a third-party API, you could check:  
  - have the API creators provided an official gem for Rails developers to use?  
  - is there an [OmniAuth](https://github.com/omniauth/omniauth) strategy for the API?  
  - do I want to try building more myself with tools like [Oauth2](https://github.com/intridea/oauth2/) gems?
- 
-<details><summary> Alternative Strategy Example: OAuth 2 Authorization </summary>
+
+
+<details><summary> OAuth 2 Authorization </summary>
 
 OAuth 2 is a framework for third-party authorization - allowing one application to access data from another application, on a user's behalf.
 
@@ -190,12 +195,10 @@ On the web, a classic example is an application that aggregates information stor
 
 Sam may not want to give GitFace his login information for both of those sites, so instead GitFace makes an arrangement with github and facebook. Let's consider facebook. When GitFace needs to access restricted data, it will link Sam to a special authorization page the app has set up with facebook.  This page is entirely controlled by facebook - and it relies on GitFace's facebook app id as well as the specific information GitFace is requesting.  Sam will enter in his information in a form on that page.
 
-GitFace never interacts directly with  Sam's login information.  If Sam is authenticated and agrees to share the resource GitFace needs, facebook's server sends back a response that redirects Sam back to the GitFace app.  The response also includes a special code specific to the data GitFace has requested. 
+GitFace never interacts directly with  Sam's login information.  If Sam is authenticated and agrees to share the resource GitFace needs, facebook's server sends back a response that redirects Sam back to the GitFace app.  The response also includes a special code specific to the data GitFace has requested.
 
 In the background, GitFace then sends a new request to facebook - it needs to convert Sam's permission code into a token.  In order to get the code converted, GitFace also needs to securely identify itself to facebook by telling facebook its client secret.
 
 If the permission code and client secret check out, facbook issues a token that GitFace can use to access the materials approved by Sam. This usually has some expiration time so that the user doesn't have to re-authenticate on every step.  
 
 </details>
-
-
