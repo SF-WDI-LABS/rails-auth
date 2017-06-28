@@ -232,14 +232,14 @@ For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/
     end
     ```
 
-15. Add a ``` before_filter ``` to any controller that you want to secure. This will force user's to login before they can see the actions in this controller. I've created a gif controller below which I'm going to secure. The routes for this controller were added to the routes.rb in the beginning of this tutorial.
+15. Add a ``` before_action ``` to any controller that you want to secure. This will force user's to login before they can see the actions in this controller. I've created a gif controller below which I'm going to secure. The routes for this controller were added to the routes.rb in the beginning of this tutorial.
 
     ```ruby
     # app/controllers/gif_controller.rb
 
     class GifController < ApplicationController
 
-      before_filter :authorize
+      before_action :authorize
 
       def cool
       end
@@ -249,6 +249,7 @@ For an example, see <a href="https://github.com/SF-WDI-LABS/rails_blog_app/tree/
 
     end
     ```
+
 
 16. You can update your application layout file to show the user's name if they're logged in and some contextual links.
 
