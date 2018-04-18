@@ -155,6 +155,12 @@ You've seen **authentication**, but for many apps you'll still want to add **aut
 
 * Then, in each of your controllers, check whether the `current_user` should be allowed to do the action they're trying to. You can use `before_action` to keep this code DRYer.
 
+
+```rb
+  def authorize
+    redirect_to '/login' unless current_user
+  end
+```
 * Consider adding conditionals to your views. For example, don't show links to users who can't use them.
 
 
